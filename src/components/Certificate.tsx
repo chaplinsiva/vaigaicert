@@ -33,7 +33,7 @@ export const Certificate: React.FC<CertificateProps> = ({
           aspectRatio: '1.414 / 1', // Standard A4 Landscape
           minHeight: '640px',
           boxSizing: 'border-box',
-          padding: '24px 34px 48px 34px', // Generous 48px bottom padding prevents any border clipping
+          padding: '28px 34px 28px 34px', // Symmetrical top and bottom padding for exact vertical centering
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
@@ -172,7 +172,7 @@ export const Certificate: React.FC<CertificateProps> = ({
               margin: '1px 0 0 0',
             }}
           >
-            Madurai - 625 014, Tamil Nadu, India.
+            Madurai - 625122, Tamil Nadu, India.
           </p>
 
           {/* Gold Decorative Divider */}
@@ -259,6 +259,7 @@ export const Certificate: React.FC<CertificateProps> = ({
           style={{
             paddingLeft: 'clamp(115px, 15vw, 160px)',
             paddingRight: 'clamp(115px, 15vw, 160px)',
+            transform: 'translateY(-12px)',
           }}
         >
           <p

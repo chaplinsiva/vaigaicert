@@ -91,6 +91,26 @@ export async function downloadCertificateAsPdf(elementId: string, filename: stri
   const pdfWidth = pdf.internal.pageSize.getWidth();
   const pdfHeight = pdf.internal.pageSize.getHeight();
 
-  pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight, undefined, 'FAST');
+  const canvasWidth = canvas.width;
+  const canvasHeight = canvas.height;
+  const canvasRatio = canvasWidth / canvasHeight;
+  const pageRatio = pdfWidth / pdfHeight;
+
+  let printWidth = pdfWidth;
+  let printHeight = pdfHeight;
+  let x = 0;
+  let y = 0;
+
+  if (Math.abs(canvasRatio - pageRatio) > 0.005) {
+    if (canvasRatio > pageRatio) {
+      printHeight = pdfWidth / canvasRatio;
+      y = (pdfHeight - printHeight) / 2;
+    } else {
+      printWidth = pdfHeight * canvasRatio;
+      x = (pdfWidth - printWidth) / 2;
+    }
+  }
+
+  pdf.addImage(imgData, 'PNG', x, y, printWidth, printHeight, undefined, 'FAST');
   pdf.save(`${filename}.pdf`);
 }
