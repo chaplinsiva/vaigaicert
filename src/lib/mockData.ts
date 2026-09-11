@@ -19,12 +19,12 @@ export const EVENT_DETAILS: EventDetails = {
       title: "Co-ordinator • AP / ECE"
     },
     {
-      name: "Ms. N. Roobika",
-      title: "Co-ordinator • AP / CSE"
-    },
-    {
       name: "Ms. E. Selvamahalakshmi",
       title: "Co-ordinator • AP / ECE"
+    },
+    {
+      name: "Ms. N. Roobika",
+      title: "Co-ordinator • AP / CSE"
     }
   ],
   registrationUrl: "https://forms.gle/Q28jBNMCCdrUT6VD8",

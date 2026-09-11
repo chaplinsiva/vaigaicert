@@ -434,27 +434,7 @@ export const Certificate: React.FC<CertificateProps> = ({
               </p>
             </div>
 
-            {/* Signature 2: Ms. N. Roobika (CO-ORDINATOR) */}
-            <div className="flex flex-col items-center justify-end h-full">
-              <div className="h-[34px] sm:h-[38px] w-full flex items-center justify-center mb-0.5">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/Roobika.png"
-                  alt="Signature Ms. N. Roobika"
-                  className="h-full w-auto max-w-[105px] object-contain"
-                  crossOrigin="anonymous"
-                />
-              </div>
-              <div style={{ width: '85%', maxWidth: '110px', height: '1.2px', backgroundColor: '#334155', margin: '0 auto 2px auto' }} />
-              <p style={{ fontSize: 'clamp(7.5px, 0.85vw, 9.5px)', fontWeight: 800, color: '#091e3e', margin: 0, lineHeight: 1.15 }}>
-                Ms. N. Roobika <span className="font-normal text-slate-500 text-[6.5px] sm:text-[7.5px]">– AP/CSE</span>
-              </p>
-              <p style={{ fontSize: 'clamp(7.5px, 0.8vw, 9px)', fontWeight: 800, color: '#091e3e', margin: '1px 0 0 0', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                CO-ORDINATOR
-              </p>
-            </div>
-
-            {/* Signature 3: Ms. E. Selvamahalakshmi (CO-ORDINATOR(S)) */}
+            {/* Signature 2: Ms. E. Selvamahalakshmi (CO-ORDINATOR) */}
             <div className="flex flex-col items-center justify-end h-full">
               <div className="h-[34px] sm:h-[38px] w-full flex items-center justify-center mb-0.5">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -468,6 +448,26 @@ export const Certificate: React.FC<CertificateProps> = ({
               <div style={{ width: '85%', maxWidth: '110px', height: '1.2px', backgroundColor: '#334155', margin: '0 auto 2px auto' }} />
               <p style={{ fontSize: 'clamp(7.5px, 0.85vw, 9.5px)', fontWeight: 800, color: '#091e3e', margin: 0, lineHeight: 1.15 }}>
                 Ms. E. Selvamahalakshmi <span className="font-normal text-slate-500 text-[6.5px] sm:text-[7.5px]">– AP/ECE</span>
+              </p>
+              <p style={{ fontSize: 'clamp(7.5px, 0.8vw, 9px)', fontWeight: 800, color: '#091e3e', margin: '1px 0 0 0', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                CO-ORDINATOR
+              </p>
+            </div>
+
+            {/* Signature 3: Ms. N. Roobika (CO-ORDINATOR) */}
+            <div className="flex flex-col items-center justify-end h-full">
+              <div className="h-[34px] sm:h-[38px] w-full flex items-center justify-center mb-0.5">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/Roobika.png"
+                  alt="Signature Ms. N. Roobika"
+                  className="h-full w-auto max-w-[105px] object-contain"
+                  crossOrigin="anonymous"
+                />
+              </div>
+              <div style={{ width: '85%', maxWidth: '110px', height: '1.2px', backgroundColor: '#334155', margin: '0 auto 2px auto' }} />
+              <p style={{ fontSize: 'clamp(7.5px, 0.85vw, 9.5px)', fontWeight: 800, color: '#091e3e', margin: 0, lineHeight: 1.15 }}>
+                Ms. N. Roobika <span className="font-normal text-slate-500 text-[6.5px] sm:text-[7.5px]">– AP/CSE</span>
               </p>
               <p style={{ fontSize: 'clamp(7.5px, 0.8vw, 9px)', fontWeight: 800, color: '#091e3e', margin: '1px 0 0 0', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                 CO-ORDINATOR

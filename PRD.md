@@ -28,7 +28,7 @@ The platform solves certificate management challenges by:
 - **Event Title:** 5-Day AI Webinar Series 2026
 - **Event Dates:** September 7, 2026 – September 11, 2026 (7:00 PM – 8:00 PM IST Daily)
 - **Convener:** Dr. R. Sivaranjani (Professor / ECE)
-- **Faculty Coordinators:** Ms. Roobika (AP / CSE), Ms. Selvamahalakshmi (AP / ECE)
+- **Faculty Coordinators:** Ms. Selvamahalakshmi (AP / ECE), Ms. Roobika (AP / CSE)
 - **Webinar Itinerary:**
   - **Day 1 (Sept 7, 2026):** Mr. Jaiber John – *Embodied AI: Bridging Vision, Language, and Action for Next-Gen Robotics*
   - **Day 2 (Sept 8, 2026):** Dr. Yoga Meena – *Computer Vision and AI: Leveraging Video Analytics for Enhanced Insight*
