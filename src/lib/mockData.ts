@@ -11,20 +11,20 @@ export const EVENT_DETAILS: EventDetails = {
   time: "7:00 PM – 8:00 PM IST Daily",
   convener: {
     name: "Dr. R. Sivaranjani",
-    title: "Professor / ECE, Convener & PRINCIPAL I/C"
+    title: "Principal i/c & Convener • Professor / ECE"
   },
   coordinators: [
     {
       name: "Mrs. P. Kursheetha Begum",
-      title: "AP/ECE, Co-ordinator"
+      title: "Co-ordinator • AP / ECE"
     },
     {
       name: "Ms. N. Roobika",
-      title: "Assistant Professor / CSE"
+      title: "Co-ordinator • AP / CSE"
     },
     {
       name: "Ms. E. Selvamahalakshmi",
-      title: "Assistant Professor / ECE"
+      title: "Co-ordinator • AP / ECE"
     }
   ],
   registrationUrl: "https://forms.gle/Q28jBNMCCdrUT6VD8",

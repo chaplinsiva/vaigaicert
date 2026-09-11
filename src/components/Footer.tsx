@@ -22,23 +22,36 @@ export const Footer: React.FC = () => {
           </p>
         </div>
 
-        {/* Convener & Coordinators */}
+        {/* Organizing Committee: Principal, Convener to Coordinators */}
         <div>
           <h4 className="text-xs font-semibold uppercase tracking-wider text-amber-400 mb-3">
-            Organizing Committee
+            Principal, Convener & Coordinators
           </h4>
-          <ul className="text-xs space-y-2 text-slate-300">
-            <li>
-              <span className="font-medium text-slate-100">{EVENT_DETAILS.convener.name}</span>
-              <span className="text-slate-400 block text-[11px]">{EVENT_DETAILS.convener.title}</span>
-            </li>
-            {EVENT_DETAILS.coordinators.map((coord, i) => (
-              <li key={i}>
-                <span className="font-medium text-slate-100">{coord.name}</span>
-                <span className="text-slate-400 block text-[11px]">{coord.title}</span>
-              </li>
-            ))}
-          </ul>
+          <div className="space-y-3 text-xs">
+            {/* Principal & Convener */}
+            <div>
+              <div className="flex items-center gap-1.5">
+                <span className="font-semibold text-slate-100">{EVENT_DETAILS.convener.name}</span>
+                <span className="text-[9.5px] px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20 font-medium">
+                  Principal & Convener
+                </span>
+              </div>
+              <span className="text-slate-400 block text-[11px] mt-0.5">{EVENT_DETAILS.convener.title}</span>
+            </div>
+
+            {/* Coordinators */}
+            <div>
+              <p className="text-[11px] font-semibold text-slate-300 mb-1">Faculty Co-ordinators:</p>
+              <ul className="space-y-1.5 text-slate-300">
+                {EVENT_DETAILS.coordinators.map((coord, i) => (
+                  <li key={i} className="text-[11px] text-slate-300">
+                    <span className="font-medium text-slate-200">{coord.name}</span>
+                    <span className="text-slate-400 text-[10.5px] block">{coord.title}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
 
         {/* Quick Links & Verification */}

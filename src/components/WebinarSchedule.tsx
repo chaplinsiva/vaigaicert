@@ -66,7 +66,7 @@ export const WebinarSchedule: React.FC = () => {
           <div>
             <div className="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider mb-2">
               <Award className="w-4 h-4" />
-              <span>Event Conveners</span>
+              <span>Principal, Convener & Coordinators</span>
             </div>
             <h3 className="text-lg font-cinzel font-bold text-white mb-3">
               Leadership & Coordination
@@ -74,11 +74,16 @@ export const WebinarSchedule: React.FC = () => {
             
             <div className="space-y-3 text-xs">
               <div className="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800">
-                <p className="font-bold text-amber-300">{EVENT_DETAILS.convener.name}</p>
+                <div className="flex items-center justify-between gap-1 mb-0.5">
+                  <p className="font-bold text-amber-300">{EVENT_DETAILS.convener.name}</p>
+                  <span className="text-[9.5px] px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/20 font-semibold">
+                    Principal & Convener
+                  </span>
+                </div>
                 <p className="text-slate-400 text-[11px]">{EVENT_DETAILS.convener.title}</p>
               </div>
               <div className="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800">
-                <p className="font-bold text-slate-200">Coordinators:</p>
+                <p className="font-bold text-slate-200 mb-1">Faculty Coordinators:</p>
                 {EVENT_DETAILS.coordinators.map((c, idx) => (
                   <p key={idx} className="text-slate-300 text-[11px]">
                     • {c.name} ({c.title})
