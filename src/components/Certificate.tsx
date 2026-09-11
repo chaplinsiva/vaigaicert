@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Participant } from '../lib/types';
-import { ShieldAlert, MapPin, Sparkles } from 'lucide-react';
+import { ShieldAlert } from 'lucide-react';
 
 interface CertificateProps {
   participant: Participant;
@@ -82,6 +82,105 @@ export const Certificate: React.FC<CertificateProps> = ({
         <div className="absolute top-5 right-5 w-8 h-8 pointer-events-none border-t-2 border-r-2 border-[#d4af37]" />
         <div className="absolute bottom-5 left-5 w-8 h-8 pointer-events-none border-b-2 border-l-2 border-[#d4af37]" />
         <div className="absolute bottom-5 right-5 w-8 h-8 pointer-events-none border-b-2 border-r-2 border-[#d4af37]" />
+
+        {/* ================= TOP-LEFT CORNER RIBBON SWOOSH ================= */}
+        <div className="absolute top-0 left-0 w-36 sm:w-48 h-36 sm:h-48 pointer-events-none z-20 overflow-hidden">
+          <svg
+            viewBox="0 0 180 180"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-full h-full"
+          >
+            <defs>
+              <linearGradient id="cornerNavy" x1="0" y1="0" x2="180" y2="180" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#040d1a" />
+                <stop offset="50%" stopColor="#091e3e" />
+                <stop offset="100%" stopColor="#143666" />
+              </linearGradient>
+              <linearGradient id="cornerGold" x1="0" y1="0" x2="180" y2="180" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#ffe699" />
+                <stop offset="40%" stopColor="#d4af37" />
+                <stop offset="80%" stopColor="#aa8218" />
+                <stop offset="100%" stopColor="#f3c64c" />
+              </linearGradient>
+              <linearGradient id="cornerBlue" x1="0" y1="0" x2="180" y2="180" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#1e3a8a" />
+                <stop offset="60%" stopColor="#2563eb" />
+                <stop offset="100%" stopColor="#38bdf8" />
+              </linearGradient>
+              <filter id="ribbonShadow" x="-10%" y="-10%" width="130%" height="130%">
+                <feDropShadow dx="2" dy="3" stdDeviation="3" floodOpacity="0.35" />
+              </filter>
+            </defs>
+            {/* Deep Navy Main Ribbon Swoop */}
+            <path
+              d="M 0,0 L 175,0 C 130,12 85,45 48,95 C 24,128 8,155 0,175 Z"
+              fill="url(#cornerNavy)"
+              filter="url(#ribbonShadow)"
+            />
+            {/* Inner Royal Blue Layer */}
+            <path
+              d="M 0,0 L 115,0 C 85,15 50,45 28,82 C 12,108 4,128 0,140 Z"
+              fill="url(#cornerBlue)"
+              opacity="0.9"
+            />
+            {/* Dynamic Gold Ribbon Trim Band */}
+            <path
+              d="M 152,0 C 112,16 72,50 38,98 C 18,128 6,154 0,170 L 0,160 C 5,145 18,120 37,92 C 70,45 108,13 145,0 Z"
+              fill="url(#cornerGold)"
+            />
+            {/* Delicate Gold Piping Outer Edge */}
+            <path
+              d="M 0,0 L 175,0 C 130,12 85,45 48,95 C 24,128 8,155 0,175"
+              stroke="url(#cornerGold)"
+              strokeWidth="1.8"
+              fill="none"
+            />
+          </svg>
+        </div>
+
+
+        {/* ================= BOTTOM-RIGHT CORNER RIBBON SWOOSH ================= */}
+        <div className="absolute bottom-0 right-0 w-36 sm:w-48 h-36 sm:h-48 pointer-events-none z-10 overflow-hidden">
+          <svg
+            viewBox="0 0 180 180"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-full h-full"
+          >
+            <defs>
+              <linearGradient id="cornerNavyBR" x1="180" y1="180" x2="0" y2="0" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stopColor="#040d1a" />
+                <stop offset="50%" stopColor="#091e3e" />
+                <stop offset="100%" stopColor="#143666" />
+              </linearGradient>
+            </defs>
+            {/* Deep Navy Ribbon Swoop */}
+            <path
+              d="M 180,180 L 5,180 C 50,168 95,135 132,85 C 156,52 172,25 180,5 Z"
+              fill="url(#cornerNavyBR)"
+              opacity="0.95"
+            />
+            {/* Royal Blue Inner Swoop */}
+            <path
+              d="M 180,180 L 65,180 C 95,165 130,135 152,98 C 168,72 176,52 180,40 Z"
+              fill="url(#cornerBlue)"
+              opacity="0.8"
+            />
+            {/* Gold Accent Band */}
+            <path
+              d="M 28,180 C 68,164 108,130 142,82 C 162,52 174,26 180,10 L 180,20 C 175,35 162,60 143,88 C 110,135 72,167 35,180 Z"
+              fill="url(#cornerGold)"
+            />
+            {/* Gold Edge Highlight */}
+            <path
+              d="M 180,180 L 5,180 C 50,168 95,135 132,85 C 156,52 172,25 180,5"
+              stroke="url(#cornerGold)"
+              strokeWidth="1.8"
+              fill="none"
+            />
+          </svg>
+        </div>
 
         {/* ================= 2. CENTER-LEFT & CENTER-RIGHT AI VECTORS ================= */}
         {/* Center-Left: Glowing AI Neural Circuit Brain Vector */}
@@ -166,13 +265,13 @@ export const Certificate: React.FC<CertificateProps> = ({
 
           <p
             style={{
-              fontSize: 'clamp(7.5px, 0.88vw, 9.5px)',
-              fontWeight: 600,
-              color: '#64748b',
+              fontSize: 'clamp(8px, 0.9vw, 10px)',
+              fontWeight: 700,
+              color: '#091e3e',
               margin: '1px 0 0 0',
             }}
           >
-            Madurai - 625122, Tamil Nadu, India.
+            Madurai - 625 014, Tamil Nadu, India.
           </p>
 
           {/* Gold Decorative Divider */}
@@ -266,7 +365,7 @@ export const Certificate: React.FC<CertificateProps> = ({
           style={{
             paddingLeft: 'clamp(115px, 15vw, 160px)',
             paddingRight: 'clamp(115px, 15vw, 160px)',
-            transform: 'translateY(-12px)',
+            transform: 'translateY(-10px)',
           }}
         >
           <p
@@ -315,19 +414,20 @@ export const Certificate: React.FC<CertificateProps> = ({
           {/* Citation Paragraphs */}
           <p
             style={{
-              fontSize: 'clamp(8.5px, 0.92vw, 10.5px)',
-              lineHeight: 1.45,
-              color: '#334155',
+              fontSize: 'clamp(11px, 1.22vw, 14px)',
+              fontWeight: 600,
+              lineHeight: 1.55,
+              color: '#1e293b',
               margin: '0 auto',
             }}
           >
             has successfully participated in the{' '}
-            <strong style={{ color: '#1e1b4b', fontWeight: 800 }}>
+            <strong style={{ color: '#091e3e', fontWeight: 800 }}>
               5-Day AI Engineering Knowledge Webinar Series
             </strong>{' '}
             organized by{' '}
             <strong style={{ color: '#831843', fontWeight: 800 }}>
-              Vaigai College of Engineering
+              Vaigai College of Engineering, Madurai
             </strong>{' '}
             from <strong style={{ color: '#091e3e', fontWeight: 800 }}>07-09-2026</strong> to{' '}
             <strong style={{ color: '#091e3e', fontWeight: 800 }}>11-09-2026</strong>.
@@ -335,11 +435,12 @@ export const Certificate: React.FC<CertificateProps> = ({
 
           <p
             style={{
-              fontSize: 'clamp(8px, 0.85vw, 9.5px)',
+              fontSize: 'clamp(7.5px, 0.8vw, 9px)',
+              fontWeight: 500,
               lineHeight: 1.35,
               color: '#64748b',
               fontStyle: 'italic',
-              margin: '0 auto',
+              margin: '3px auto 0 auto',
             }}
           >
             The participant actively attended the sessions and gained valuable knowledge in Artificial Intelligence,
@@ -347,46 +448,46 @@ export const Certificate: React.FC<CertificateProps> = ({
           </p>
         </div>
 
-        {/* ================= 6. FOOTER: METADATA CARD + 3 REAL SIGNATURES ================= */}
-        <div className="relative z-10 flex items-end justify-between px-2 pt-2 border-t border-slate-200/90 mb-1">
-          {/* Bottom-Left Metadata Card */}
-          <div className="flex flex-col gap-1 flex-shrink-0">
-            <div
-              className="rounded-lg p-1.5 shadow-xs flex items-center gap-1.5 text-[8.5px] sm:text-[9.5px] text-slate-700 font-semibold"
-              style={{
-                backgroundColor: '#ffffff',
-                border: '1px solid #cbd5e1',
-              }}
-            >
-              <MapPin className="w-3 h-3 text-rose-600" />
-              <span>Place :</span>
+        {/* ================= 6. FOOTER: PLACE/DATE METADATA + 3 FULL-WIDTH SIGNATURES ================= */}
+        <div className="relative z-10 w-full pt-1.5 border-t border-slate-200/90 mb-0.5">
+          {/* Metadata Row: Place: Madurai */}
+          <div
+            className="w-full text-[8px] sm:text-[9.5px] font-semibold text-slate-600 mb-1"
+            style={{
+              paddingLeft: 'clamp(6px, 1.2vw, 14px)',
+              transform: 'translateX(-12px)',
+            }}
+          >
+            <div className="flex items-center gap-1">
+              <span className="text-slate-500 uppercase tracking-wider text-[7px] sm:text-[8px]">Place :</span>
               <span className="font-bold text-[#091e3e]">Madurai</span>
-            </div>
-
-            {/* Inspiring Pill: Knowledge Builds a Smarter Tomorrow */}
-            <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-gradient-to-r from-[#091e3e] to-[#12396b] text-white text-[7.5px] sm:text-[8.5px] font-semibold shadow-xs max-w-fit">
-              <Sparkles className="w-2.5 h-2.5 text-[#fbe282]" />
-              <span>Knowledge Builds a Smarter Tomorrow</span>
             </div>
           </div>
 
-          {/* 3 Real Signatures with Equal Baseline Heights */}
-          <div className="flex-1 grid grid-cols-3 gap-2 sm:gap-3 items-end text-center pl-3 sm:pl-6">
-            {/* Signature 1: Co-ordinator (Mrs. P. Kursheetha Begum) */}
+          {/* 3 Real Signatures Shifted a Little Left */}
+          <div
+            className="w-full grid grid-cols-3 gap-2 sm:gap-4 items-end text-center"
+            style={{
+              paddingLeft: 'clamp(4px, 1vw, 12px)',
+              paddingRight: 'clamp(24px, 3.5vw, 44px)',
+              transform: 'translateX(-12px)',
+            }}
+          >
+            {/* Signature 1: Co-ordinator (Mrs. P. Kursheetha Begum) - Left Column */}
             <div className="flex flex-col items-center justify-end h-full">
-              <div className="h-[34px] sm:h-[38px] w-full flex items-center justify-center mb-0.5">
+              <div className="h-[36px] sm:h-[40px] w-full flex items-center justify-center mb-0.5">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/Kursheetha_Begum.png"
                   alt="Signature Mrs. P. Kursheetha Begum"
-                  className="h-full w-auto max-w-[110px] object-contain"
+                  className="h-full w-auto max-w-[130px] object-contain"
                   crossOrigin="anonymous"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = '/Kursheetha Begum.png';
                   }}
                 />
               </div>
-              <div style={{ width: '85%', maxWidth: '110px', height: '1.2px', backgroundColor: '#334155', margin: '0 auto 2px auto' }} />
+              <div style={{ width: '85%', maxWidth: '140px', height: '1.2px', backgroundColor: '#334155', margin: '0 auto 2px auto' }} />
               <p style={{ fontSize: 'clamp(8.5px, 0.95vw, 10.5px)', fontWeight: 800, color: '#091e3e', margin: 0, lineHeight: 1.15 }}>
                 Mrs. P. Kursheetha Begum <span className="font-normal text-slate-500 text-[7px] sm:text-[8px]">– AP/ECE</span>
               </p>
@@ -395,7 +496,7 @@ export const Certificate: React.FC<CertificateProps> = ({
               </p>
             </div>
 
-            {/* Signature 2: Coordinators - Upper (Ms. N. Roobika) & Bottom (Ms. E. Selvamahalakshmi) */}
+            {/* Signature 2: Coordinators (Ms. N. Roobika & Ms. E. Selvamahalakshmi) - Center Column */}
             <div className="flex flex-col items-center justify-end h-full">
               {/* Upper: Ms. N. Roobika */}
               <div className="w-full flex flex-col items-center mb-1">
@@ -404,11 +505,11 @@ export const Certificate: React.FC<CertificateProps> = ({
                   <img
                     src="/Roobika.png"
                     alt="Signature Ms. N. Roobika"
-                    className="h-full w-auto max-w-[95px] object-contain"
+                    className="h-full w-auto max-w-[110px] object-contain"
                     crossOrigin="anonymous"
                   />
                 </div>
-                <div style={{ width: '80%', maxWidth: '95px', height: '1px', backgroundColor: '#475569', margin: '1px auto' }} />
+                <div style={{ width: '80%', maxWidth: '110px', height: '1px', backgroundColor: '#475569', margin: '1px auto' }} />
                 <p style={{ fontSize: 'clamp(7.5px, 0.82vw, 9px)', fontWeight: 700, color: '#091e3e', margin: 0, lineHeight: 1.15 }}>
                   Ms. N. Roobika <span className="font-normal text-slate-500 text-[6.5px] sm:text-[7.5px]">– AP/CSE</span>
                 </p>
@@ -421,11 +522,11 @@ export const Certificate: React.FC<CertificateProps> = ({
                   <img
                     src="/selvamahashmi.png"
                     alt="Signature Ms. E. Selvamahalakshmi"
-                    className="h-full w-auto max-w-[95px] object-contain"
+                    className="h-full w-auto max-w-[110px] object-contain"
                     crossOrigin="anonymous"
                   />
                 </div>
-                <div style={{ width: '80%', maxWidth: '95px', height: '1px', backgroundColor: '#475569', margin: '1px auto' }} />
+                <div style={{ width: '80%', maxWidth: '110px', height: '1px', backgroundColor: '#475569', margin: '1px auto' }} />
                 <p style={{ fontSize: 'clamp(7.5px, 0.82vw, 9px)', fontWeight: 700, color: '#091e3e', margin: 0, lineHeight: 1.15 }}>
                   Ms. E. Selvamahalakshmi <span className="font-normal text-slate-500 text-[6.5px] sm:text-[7.5px]">– AP/ECE</span>
                 </p>
@@ -436,18 +537,18 @@ export const Certificate: React.FC<CertificateProps> = ({
               </p>
             </div>
 
-            {/* Signature 3: Convener (Dr. R. Sivaranjani) */}
+            {/* Signature 3: Convener (Dr. R. Sivaranjani) - Right Column */}
             <div className="flex flex-col items-center justify-end h-full">
-              <div className="h-[34px] sm:h-[38px] w-full flex items-center justify-center mb-0.5">
+              <div className="h-[36px] sm:h-[40px] w-full flex items-center justify-center mb-0.5">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/sivaranjini.png"
                   alt="Signature Dr. R. Sivaranjani"
-                  className="h-full w-auto max-w-[110px] object-contain"
+                  className="h-full w-auto max-w-[130px] object-contain"
                   crossOrigin="anonymous"
                 />
               </div>
-              <div style={{ width: '85%', maxWidth: '110px', height: '1.2px', backgroundColor: '#334155', margin: '0 auto 2px auto' }} />
+              <div style={{ width: '85%', maxWidth: '140px', height: '1.2px', backgroundColor: '#334155', margin: '0 auto 2px auto' }} />
               <p style={{ fontSize: 'clamp(8.5px, 0.95vw, 10.5px)', fontWeight: 800, color: '#091e3e', margin: 0, lineHeight: 1.15 }}>
                 Dr. R. Sivaranjani <span className="font-normal text-slate-500 text-[7px] sm:text-[8px]">– PRINCIPAL I/C</span>
               </p>
