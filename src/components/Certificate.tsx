@@ -216,39 +216,46 @@ export const Certificate: React.FC<CertificateProps> = ({
 
             {/* Main Ribbon Center */}
             <div
-              className="relative px-10 sm:px-14 py-1.5 rounded-sm shadow-md flex flex-col items-center justify-center"
+              className="relative px-10 sm:px-14 rounded-sm shadow-md flex flex-col items-center justify-center"
               style={{
                 background: 'linear-gradient(180deg, #10335e 0%, #091e3e 55%, #051329 100%)',
                 borderTop: '2px solid #fbe282',
                 borderBottom: '2px solid #c29124',
+                paddingTop: '3px',
+                paddingBottom: '9px',
               }}
             >
-              <span
-                className="font-cinzel text-white"
-                style={{
-                  fontSize: 'clamp(15px, 1.9vw, 21px)',
-                  fontWeight: 900,
-                  letterSpacing: '0.16em',
-                  textTransform: 'uppercase',
-                  lineHeight: 1.15,
-                  textShadow: '0 2px 4px rgba(0,0,0,0.5)',
-                }}
+              <div
+                className="flex flex-col items-center justify-center text-center"
+                style={{ transform: 'translateY(-5px)' }}
               >
-                Certificate
-              </span>
-              <span
-                className="font-montserrat text-[#fbe282]"
-                style={{
-                  fontSize: 'clamp(8px, 0.9vw, 10.5px)',
-                  fontWeight: 800,
-                  letterSpacing: '0.2em',
-                  textTransform: 'uppercase',
-                  lineHeight: 1.2,
-                  marginTop: '1px',
-                }}
-              >
-                ★ Of Participation ★
-              </span>
+                <span
+                  className="font-cinzel text-white block"
+                  style={{
+                    fontSize: 'clamp(15px, 1.9vw, 21px)',
+                    fontWeight: 900,
+                    letterSpacing: '0.16em',
+                    textTransform: 'uppercase',
+                    lineHeight: 1,
+                    textShadow: '0 2px 4px rgba(0,0,0,0.5)',
+                  }}
+                >
+                  Certificate
+                </span>
+                <span
+                  className="font-montserrat text-[#fbe282] block"
+                  style={{
+                    fontSize: 'clamp(8px, 0.9vw, 10.5px)',
+                    fontWeight: 800,
+                    letterSpacing: '0.2em',
+                    textTransform: 'uppercase',
+                    lineHeight: 1,
+                    marginTop: '2px',
+                  }}
+                >
+                  ★ Of Participation ★
+                </span>
+              </div>
             </div>
           </div>
         </div>
