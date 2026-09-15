@@ -36,8 +36,8 @@ export const Navbar: React.FC<NavbarProps> = ({ isAdmin, onAdminToggle }) => {
                   AI 2026
                 </span>
               </div>
-              <p className="text-xs text-slate-400 font-medium tracking-tight">
-                Certificate Provider • College of Engineering
+              <p className="text-[11px] sm:text-xs text-slate-400 font-medium tracking-tight truncate max-w-[140px] xs:max-w-[190px] sm:max-w-none">
+                Certificate Portal • College of Engineering
               </p>
             </div>
           </Link>

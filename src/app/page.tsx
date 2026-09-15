@@ -58,36 +58,36 @@ export default function Home() {
           </div>
 
           {/* Main Titles */}
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-cinzel font-extrabold text-white tracking-tight max-w-5xl mx-auto leading-tight sm:leading-tight">
+          <h1 className="text-2xl xs:text-3xl sm:text-5xl lg:text-6xl font-cinzel font-extrabold text-white tracking-tight max-w-5xl mx-auto leading-tight">
             Official E-Certificate Portal & Validation System
           </h1>
 
-          <p className="text-sm sm:text-lg text-slate-300 max-w-3xl mx-auto mt-4 font-normal leading-relaxed">
+          <p className="text-xs xs:text-sm sm:text-lg text-slate-300 max-w-3xl mx-auto mt-4 font-normal leading-relaxed">
             Jointly organized by the <strong className="text-white font-semibold">Department of ECE & Department of CSE</strong>, 
             celebrating participant achievements across 5 comprehensive days of emerging Artificial Intelligence & Robotics.
           </p>
 
           {/* Key Event Highlights Row */}
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 mt-6 text-xs text-slate-300">
-            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-900/80 border border-slate-800">
-              <Calendar className="w-4 h-4 text-amber-400" />
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mt-6 text-[11px] sm:text-xs text-slate-300">
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/80 border border-slate-800">
+              <Calendar className="w-3.5 h-3.5 text-amber-400 shrink-0" />
               <span>September 7 – 11, 2026</span>
             </div>
-            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-900/80 border border-slate-800">
-              <Clock className="w-4 h-4 text-amber-400" />
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/80 border border-slate-800">
+              <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
               <span>7:00 PM – 8:00 PM Daily</span>
             </div>
-            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-900/80 border border-slate-800">
-              <ShieldCheck className="w-4 h-4 text-emerald-400" />
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/80 border border-slate-800">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
               <span>Automated QR Verification</span>
             </div>
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
+          <div className="flex flex-col xs:flex-row items-center justify-center gap-3 sm:gap-4 mt-8 w-full max-w-md mx-auto xs:max-w-none">
             <a
               href="#search"
-              className="flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg shadow-amber-500/25 transition-all hover:scale-105"
+              className="w-full xs:w-auto justify-center flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg shadow-amber-500/25 transition-all hover:scale-105 active:scale-95"
             >
               <Download className="w-4 h-4" />
               <span>Download Certificate</span>
@@ -97,7 +97,7 @@ export default function Home() {
               href={EVENT_DETAILS.registrationUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 hover:border-amber-400/50 font-semibold text-xs transition-all"
+              className="w-full xs:w-auto justify-center flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-700 hover:border-amber-400/50 font-semibold text-xs transition-all active:scale-95"
             >
               <span>Registration Form</span>
               <ExternalLink className="w-4 h-4 text-amber-400" />
@@ -105,7 +105,7 @@ export default function Home() {
           </div>
 
           {/* Countdown & Time Lock Card */}
-          <div className="mt-12 max-w-4xl mx-auto text-left">
+          <div className="mt-10 sm:mt-12 max-w-4xl mx-auto text-left">
             <CountdownTimer
               targetDate={EVENT_DETAILS.unlockDateTime}
               onUnlockedStateChange={(unlocked) => setIsUnlocked(unlocked)}
@@ -130,24 +130,24 @@ export default function Home() {
         </div>
 
         {/* INSTITUTION TRUST & CERTIFICATION ACCREDITATION */}
-        <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-          <div className="p-8 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-950 border border-slate-800 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+        <section className="py-8 sm:py-12 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+          <div className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-slate-900 via-slate-900/90 to-slate-950 border border-slate-800 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-2 text-center md:text-left">
-              <h3 className="text-lg font-cinzel font-bold text-white">
+              <h3 className="text-base sm:text-lg font-cinzel font-bold text-white">
                 Tamper-Proof Digital Verification
               </h3>
-              <p className="text-xs text-slate-400 max-w-xl">
+              <p className="text-xs text-slate-400 max-w-xl leading-relaxed">
                 Every certificate generated by Vaigai Certificate Provider is cryptographically signed and embeds an encrypted QR verification code ensuring instantaneous authenticity verification for employers and institutions.
               </p>
             </div>
 
-            <div className="flex items-center gap-4 text-xs font-semibold text-amber-400">
-              <div className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-950 border border-slate-800">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+            <div className="flex flex-wrap items-center justify-center gap-3 text-xs font-semibold text-amber-400 w-full md:w-auto">
+              <div className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-800">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                 <span>AICTE Approved</span>
               </div>
-              <div className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-950 border border-slate-800">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              <div className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-800">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                 <span>Anna University Affiliated</span>
               </div>
             </div>

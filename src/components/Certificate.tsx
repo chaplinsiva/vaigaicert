@@ -31,7 +31,7 @@ export const Certificate: React.FC<CertificateProps> = ({
           backgroundImage: 'radial-gradient(circle at 50% 50%, #ffffff 0%, #fbfdff 65%, #f4f7fb 100%)',
           width: '100%',
           aspectRatio: '1.414 / 1', // Standard A4 Landscape
-          minHeight: '640px',
+          minHeight: '580px',
           boxSizing: 'border-box',
           padding: '28px 34px 28px 34px', // Symmetrical top and bottom padding for exact vertical centering
           display: 'flex',

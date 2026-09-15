@@ -31,25 +31,39 @@ export async function downloadCertificateAsPng(elementId: string, filename: stri
 
   const html2canvas = (await import('html2canvas')).default;
 
-  const canvas = await html2canvas(element, {
-    scale: 3, // Crisp 3x DPI for printing
-    useCORS: true,
-    allowTaint: true,
-    logging: false,
-    backgroundColor: '#ffffff',
-    scrollX: 0,
-    scrollY: 0,
-    width: element.offsetWidth,
-    height: element.offsetHeight,
-  });
+  // Temporarily reset any responsive scaling transform so export is 100% full-resolution
+  const wrapper = document.getElementById('modal-certificate-wrapper') || element.parentElement;
+  const originalTransform = wrapper ? wrapper.style.transform : '';
+  const originalTransition = wrapper ? wrapper.style.transition : '';
+  if (wrapper && originalTransform && originalTransform !== 'none') {
+    wrapper.style.transition = 'none';
+    wrapper.style.transform = 'none';
+  }
 
-  const imgData = canvas.toDataURL('image/png', 1.0);
-  const link = document.createElement('a');
-  link.href = imgData;
-  link.download = `${filename}.png`;
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  try {
+    const canvas = await html2canvas(element, {
+      scale: 3, // Crisp 3x DPI for printing
+      useCORS: true,
+      allowTaint: true,
+      logging: false,
+      backgroundColor: '#ffffff',
+      scrollX: 0,
+      scrollY: 0,
+    });
+
+    const imgData = canvas.toDataURL('image/png', 1.0);
+    const link = document.createElement('a');
+    link.href = imgData;
+    link.download = `${filename}.png`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  } finally {
+    if (wrapper && originalTransform && originalTransform !== 'none') {
+      wrapper.style.transform = originalTransform;
+      wrapper.style.transition = originalTransition;
+    }
+  }
 }
 
 export async function downloadCertificateAsPdf(elementId: string, filename: string): Promise<void> {
@@ -67,50 +81,64 @@ export async function downloadCertificateAsPdf(elementId: string, filename: stri
   const html2canvas = (await import('html2canvas')).default;
   const jsPDF = (await import('jspdf')).default;
 
-  const canvas = await html2canvas(element, {
-    scale: 3,
-    useCORS: true,
-    allowTaint: true,
-    logging: false,
-    backgroundColor: '#ffffff',
-    scrollX: 0,
-    scrollY: 0,
-    width: element.offsetWidth,
-    height: element.offsetHeight,
-  });
-
-  const imgData = canvas.toDataURL('image/png', 1.0);
-  
-  // Landscape A4 PDF (297mm x 210mm)
-  const pdf = new jsPDF({
-    orientation: 'landscape',
-    unit: 'mm',
-    format: 'a4',
-  });
-
-  const pdfWidth = pdf.internal.pageSize.getWidth();
-  const pdfHeight = pdf.internal.pageSize.getHeight();
-
-  const canvasWidth = canvas.width;
-  const canvasHeight = canvas.height;
-  const canvasRatio = canvasWidth / canvasHeight;
-  const pageRatio = pdfWidth / pdfHeight;
-
-  let printWidth = pdfWidth;
-  let printHeight = pdfHeight;
-  let x = 0;
-  let y = 0;
-
-  if (Math.abs(canvasRatio - pageRatio) > 0.005) {
-    if (canvasRatio > pageRatio) {
-      printHeight = pdfWidth / canvasRatio;
-      y = (pdfHeight - printHeight) / 2;
-    } else {
-      printWidth = pdfHeight * canvasRatio;
-      x = (pdfWidth - printWidth) / 2;
-    }
+  // Temporarily reset any responsive scaling transform so export is 100% full-resolution
+  const wrapper = document.getElementById('modal-certificate-wrapper') || element.parentElement;
+  const originalTransform = wrapper ? wrapper.style.transform : '';
+  const originalTransition = wrapper ? wrapper.style.transition : '';
+  if (wrapper && originalTransform && originalTransform !== 'none') {
+    wrapper.style.transition = 'none';
+    wrapper.style.transform = 'none';
   }
 
-  pdf.addImage(imgData, 'PNG', x, y, printWidth, printHeight, undefined, 'FAST');
-  pdf.save(`${filename}.pdf`);
+  try {
+    const canvas = await html2canvas(element, {
+      scale: 3,
+      useCORS: true,
+      allowTaint: true,
+      logging: false,
+      backgroundColor: '#ffffff',
+      scrollX: 0,
+      scrollY: 0,
+    });
+
+    const imgData = canvas.toDataURL('image/png', 1.0);
+    
+    // Landscape A4 PDF (297mm x 210mm)
+    const pdf = new jsPDF({
+      orientation: 'landscape',
+      unit: 'mm',
+      format: 'a4',
+    });
+
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = pdf.internal.pageSize.getHeight();
+
+    const canvasWidth = canvas.width;
+    const canvasHeight = canvas.height;
+    const canvasRatio = canvasWidth / canvasHeight;
+    const pageRatio = pdfWidth / pdfHeight;
+
+    let printWidth = pdfWidth;
+    let printHeight = pdfHeight;
+    let x = 0;
+    let y = 0;
+
+    if (Math.abs(canvasRatio - pageRatio) > 0.005) {
+      if (canvasRatio > pageRatio) {
+        printHeight = pdfWidth / canvasRatio;
+        y = (pdfHeight - printHeight) / 2;
+      } else {
+        printWidth = pdfHeight * canvasRatio;
+        x = (pdfWidth - printWidth) / 2;
+      }
+    }
+
+    pdf.addImage(imgData, 'PNG', x, y, printWidth, printHeight, undefined, 'FAST');
+    pdf.save(`${filename}.pdf`);
+  } finally {
+    if (wrapper && originalTransform && originalTransform !== 'none') {
+      wrapper.style.transform = originalTransform;
+      wrapper.style.transition = originalTransition;
+    }
+  }
 }
